@@ -14,5 +14,3 @@ def subProb(N, p):
 
 def approxEntropy(N, p):
     return sum(prob(i, p) * infoMeasure(i, p) for i in range(1, N + 1))
-
-print(approxEntropy(1000, 0.5))

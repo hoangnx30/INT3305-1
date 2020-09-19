@@ -1,6 +1,5 @@
 import math
 
-math.f
 def prob(n, p, N):
 	return math.comb(N, n) * (p ** N)
 
