@@ -24,11 +24,11 @@ class Node:
     #     return '<tree node representation>'
 
 
-class PrefixTree:
+class PrefixCodeTree:
     def __init__(self):
         self.root = Node()
 
-    def insert_node(self, codeword, symbol):
+    def insert(self, codeword, symbol):
         node = self.root
         for bit in codeword:
             if bit == 0:
@@ -39,7 +39,7 @@ class PrefixTree:
                 node = node.right
         node.symbol = symbol
 
-    def decode_data(self, encode_data, length):
+    def decode(self, encode_data, length):
         res = ''
         node = self.root
         bits = ''
@@ -65,14 +65,14 @@ def main():
         'x4': [1, 1]
     }
 
-    code_tree = PrefixTree()
+    code_tree = PrefixCodeTree()
 
     for symbol in codebook:
-        code_tree.insert_node(codebook[symbol], symbol)
+        code_tree.insert(codebook[symbol], symbol)
 
     encode_data = b'\xd2\x9f\x20'
     length = 21
-    print(code_tree.decode_data(encode_data, length))
+    print(code_tree.decode(encode_data, length))
 
 
 main()
